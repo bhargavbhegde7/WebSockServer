@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Light Controller</title>
+  <meta name="description" content="raspberry pi light control web interface">
+  <meta name="author" content="bhargav">
+
+  <script type="text/javascript" src="jquery-3.1.0.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#sndBtn").click(function(){
+        $.post( "/", {
+          'asdf':'eeee',
+          'dds':'rrrr'
+          },function(data) {
+         alert(data);
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+    <input id = "msgTxt" type = "text" name = "message" />
+    <button id = "sndBtn">Send</button>
+
+</body>
+</html>

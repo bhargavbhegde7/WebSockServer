@@ -1,0 +1,16 @@
+{
+  "name": "websockserver",
+  "version": "1.0.0",
+  "description": "web socket server",
+  "dependencies": {
+    "body-parser": "^1.15.2",    
+    "express": "^4.10.2",    
+    "socket.io": "^1.4.6"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "bhargav",
+  "license": "MIT"
+}
