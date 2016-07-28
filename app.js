@@ -19,9 +19,11 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function (req, res) {
-  concole.log(req.body.asdf);
+  console.log(req.body.asdf);
   res.send(req.body.asdf);
-  sockPi.emit('response', "received : "+req.body.asdf);
+  if(sockPi){
+    sockPi.emit('response', "received : "+req.body.asdf);
+  }
 });
 
 var messageHandler = function(msg){
@@ -42,11 +44,13 @@ var connectionHandler = function(socket){
       userID = JSON.parse(data).userID;
       if(userID === 'android'){
         sockAndroid = socket;
+        sockAndroid.emit('response',"welcome, "+userID);
       }
       else if(userID === 'raspberry'){
         sockPi = socket;
+        sockPi.emit('response',"welcome, "+userID);
       }
-      socket.emit('response',"welcome, "+userID);
+
   });
 
   socket.on('disconnect', function(){
